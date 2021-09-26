@@ -29,7 +29,7 @@ class User_model extends CI_Model
 	public function getCategoryDatainBlog(){
 		$this->db->select("*");
             $this->db->from("category");
-			$this->db->join("subcategory", "category.blog_id=subcategory.id");
+			$this->db->join("subcategory", "category.blog_id=subcategory.subcategory_id");
             $query = $this->db->get();
             return $query->result_array();
 	}
