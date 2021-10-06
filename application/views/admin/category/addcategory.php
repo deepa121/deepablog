@@ -42,15 +42,7 @@
                       <div class="p-4 border-top">
                         <form action="<?php echo base_url('admin/category/Category/insert') ?>" method="post">
                           <div class="mb-3">
-                            <label class="form-label" for="blogid"
-                              >Blog Id</label
-                            >
-                            <select name="blogid" id="blogid" class="form-control">
-                              <option value="">Select id</option>
-                              <?php foreach($blogs as $blog){?>
-                              <option value="<?php echo $blog['id']; ?>"><?php echo "Blog : ".$blog['id']; ?></option>
-                              <?php }?>
-                            </select>
+                            
                             <label class="form-label" for="Categoryname"
                               >Category Name</label
                             >

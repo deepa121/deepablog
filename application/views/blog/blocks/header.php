@@ -57,7 +57,9 @@
                         <div class="col-lg-7 d-flex justify-content-center">
                             <nav id="dropdown" class="template-main-menu">
                                 <ul>
-                                    <li class="hide-on-mobile-menu"> <a href="#">HOME</a></li>				<?php foreach($categories as $category){ ?>				
+                                    <li class="hide-on-mobile-menu"> <a href="#">HOME</a></li>				<?php foreach($categories as $category){
+                                        // print_r($category);die();
+                                        ?>				
                                     <li>
                                         <a href="#"><?php echo $category['category_name']?></a>
                                         <ul class="dropdown-menu-col-1">

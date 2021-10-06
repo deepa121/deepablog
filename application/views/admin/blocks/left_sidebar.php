@@ -91,6 +91,13 @@
                 </a>
             </li>
 
+            <li>
+                <a href="<?php echo base_url('admin/blog/Slider') ?>" class="waves-effect">
+                    <i class="uil-store"></i>
+                    <span>Slider</span>
+                </a>
+            </li>
+
             <!-- <li>
                 <a href="chat.html" class=" waves-effect">
                     <i class="uil-comments-alt"></i>

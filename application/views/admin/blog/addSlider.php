@@ -15,14 +15,14 @@
                     justify-content-between
                   "
                 >
-                  <h4 class="mb-0">Add Blog</h4>
+                  <h4 class="mb-0">Add Slider</h4>
 
                   <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                       <li class="breadcrumb-item">
                         <a href="javascript: void(0);">Ecommerce</a>
                       </li>
-                      <li class="breadcrumb-item active">Add Blog</li>
+                      <li class="breadcrumb-item active">Add Slider</li>
                     </ol>
                   </div>
                 </div>
@@ -40,7 +40,7 @@
                       data-bs-parent="#addproduct-accordion"
                     >
                       <div class="p-4 border-top">
-                      <form action="<?php echo base_url('admin/blog/Blog/insert') ?>" method="post" enctype="multipart/form-data">
+                        <form action="<?php echo base_url('admin/blog/Slider/insert') ?>" method="post" enctype="multipart/form-data">
                           <div class="mb-3">
                             <label class="form-label" for="Categoryname"
                                 >Category Name</label
@@ -62,7 +62,7 @@
                               </select>
                               <div class="mt-3">
                                 <label class="form-label" for="title"
-                                  >Title</label
+                                  >Slider Title</label
                                 >
                                 <input
                                   id="title"
@@ -72,24 +72,13 @@
                                   required
                                 />
                               </div>
-                              <div class="mt-3">
-                                <label class="form-label" for="Description"
-                                  >Description</label
-                                >
-                                <textarea
-                                  id="Description"
-                                  name="Description"
-                                  type="text"
-                                  class="form-control"
-                                  required
-                                ></textarea>
-                              </div>
-                              <div class="mt-3">
+                              
+                              <!-- <div class="mt-3">
                               <label class="form-label" for="popular_post"
                                   >Popular post </label
                                 >
                               <input type="checkbox" name="popular_post" id="popular_post" value="1"  >
-                              </div>
+                              </div> -->
                           </div>
                           <!-- <div class="mb-3">
                             <label class="form-label" for="date"
@@ -104,7 +93,7 @@
                           </div> -->
                           <div class="mb-3">
                             <label class="form-label" for="image"
-                              >Image</label
+                              >Slider Image</label
                             >
                             <input type="file" name="image" id="" class="form-control" >
                           </div>

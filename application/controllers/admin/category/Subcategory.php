@@ -24,7 +24,7 @@ class Subcategory extends CI_Controller {
 	public function addSubCategory(){
 
 		$this->load->model("User_model");
-		$data['categories']=$this->User_model->getCategoryData();
+		$data['categories']=$this->User_model->getCategoryData1();
 		$this->load->view('admin/blocks/header');
 		$this->load->view('admin/blocks/left_sidebar');
 		$this->load->view('admin/category/addsubcategory',$data);

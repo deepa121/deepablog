@@ -15,14 +15,14 @@
                     justify-content-between
                   "
                 >
-                  <h4 class="mb-0">Edit Blog</h4>
+                  <h4 class="mb-0">Edit Slider</h4>
 
                   <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                       <li class="breadcrumb-item">
                         <a href="javascript: void(0);">Ecommerce</a>
                       </li>
-                      <li class="breadcrumb-item active">Edit blog</li>
+                      <li class="breadcrumb-item active">Edit Slider</li>
                     </ol>
                   </div>
                 </div>
@@ -40,11 +40,11 @@
                       data-bs-parent="#addproduct-accordion"
                     >
                       <div class="p-4 border-top">
-                          <?php foreach($blogs as $blog){ 
-                            //echo "<pre>";
-                            //print_r($blog);die();
+                          <?php foreach($sliders as $slider){ 
+                            // echo "<pre>";
+                            // print_r($slider);die();
                             ?>
-                        <form action="<?php echo base_url('admin/blog/Blog/update_blog') ?>/<?php echo $blog['id'] ?>" method="post">
+                        <form action="<?php echo base_url('admin/blog/Slider/update_slider') ?>/<?php echo $slider['slider_id'] ?>" method="post">
                           <div class="mb-3">
                           <label class="form-label" for="Categoryname"
                               >Category Name</label
@@ -69,47 +69,47 @@
                               <?php }?>
                             </select>
                             <label class="form-label" for="title"
-                              >Blog Title</label
+                              >Slider Title</label
                             >
                             <input
                               id="title"
                               name="title"
                               type="text"
                               class="form-control"
-                              value="<?php echo $blog['title'] ?>"
+                              value="<?php echo $slider['slider_title'] ?>"
                             />
-                            <label class="form-label" for="Description"
+                            <!-- <label class="form-label" for="Description"
                               >Description</label
                             >
                             <textarea
                               id="Description"
                               name="Description"
                               class="form-control"
-                            ><?php echo $blog['blog_description'] ?></textarea>
+                            ><?php //echo $blog['blog_description'] ?></textarea> -->
                           </div>
-                          <div class="mt-3">
+                          <!-- <div class="mt-3">
                               <label class="form-label" for="popular_post"
                                   >Popular post </label
                                 >
-                              <input type="checkbox" name="popular_post" id="popular_post" value="1" <?php if($blog['popular_post']==1){
+                              <input type="checkbox" name="popular_post" id="popular_post" value="1" <?php /* if($blog['popular_post']==1){
                                 echo "checked";
                               }else{
                                 echo "";
-                              } ?> >
-                              </div>
+                              } */?> >
+                              </div> -->
                           <div class="mb-3">
                             <label class="form-label" for="Imgname"
                               >Image</label
                             >
                             <br><br>
-                            <img width="300" src="<?php echo base_url('assets/admin/images/blogs/'.$blog['imgSrc'].''); ?>" alt="">
-                             <!-- <input
+                            <img width="300" src="<?php echo base_url('assets/admin/images/sliders/'.$slider['slider_img'].''); ?>" alt="">
+                            <!-- <input
                               id="Imgname"
                               name="Imgname"
                               type="text"
                               class="form-control"
                               value="<?php //echo $blog['imgSrc'] ?>"
-                            />  -->
+                            /> -->
                             <input type="file" name="image" id="" class="form-control" >
                           </div>
                           <div class="mb-3">
@@ -121,7 +121,7 @@
                               name="date"
                               type="text"
                               class="form-control"
-                              value="<?php echo $blog['created_at'] ?>"
+                              value="<?php echo $slider['created_at'] ?>"
                             />
                           </div>
                           

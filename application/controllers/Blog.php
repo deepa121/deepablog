@@ -14,7 +14,7 @@ class Blog extends CI_Controller {
 	{	
 		$this->load->model("User_model");
 		$data['blogs']=$this->User_model->getBlogData();
-		$data['sliders']=$this->User_model->getSliderData();
+		$data['sliders']=$this->User_model->getSliderData1();
 		$data['categories']=$this->User_model->getCategoryDatainBlog();
 		// print_r($data);die();
 		$this->load->view('blog/blocks/header',$data);
@@ -25,8 +25,9 @@ class Blog extends CI_Controller {
 	public function blogDetails()
 	{	
 		$this->load->model("User_model");
-		$data['blogs']=$this->User_model->getBlogData();
-		$data['sliders']=$this->User_model->getSliderData();
+		$id=$this->uri->segment('3');
+		$data['blogs']=$this->User_model->getBlogData1($id);
+		$data['sliders']=$this->User_model->getSliderData1();
 		$data['categories']=$this->User_model->getCategoryDatainBlog();
 		// print_r($data);die();
 		$this->load->view('blog/blocks/header',$data);

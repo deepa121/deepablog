@@ -12,16 +12,18 @@
         <!-- Slider Area Start Here -->
         <section class="slider-wrap-layout3">
             <div class="rc-carousel nav-control-layout3" data-loop="true" data-center="false" data-items="5" data-margin="5" data-autoplay="true" data-autoplay-timeout="5000" data-smart-speed="700" data-dots="false" data-nav="true" data-nav-speed="false" data-r-x-small="1" data-r-x-small-nav="true" data-r-x-small-dots="false" data-r-x-medium="1" data-r-x-medium-nav="true" data-r-x-medium-dots="false" data-r-small="2" data-r-small-nav="true" data-r-small-dots="false" data-r-medium="2" data-r-medium-nav="true" data-r-medium-dots="false" data-r-large="3" data-r-large-nav="true" data-r-large-dots="false" data-r-extra-large="3" data-r-extra-large-nav="true" data-r-extra-large-dots="false">
-                <?php foreach($sliders as $slider){ ?>
+                <?php foreach($sliders as $slider){ 
+                    //print_r($slider);die();
+                    ?>
                 <div class="slider-box-layout3">
                     <div class="item-img">
-                        <img src="<?php echo base_url(); ?>assets\blog\img\slider\<?php echo $slider['slider_img'] ?>" alt="slider">
+                        <img height="500" src="<?php echo base_url('assets/admin/images/sliders/'); ?><?php echo $slider['slider_img'] ?>" alt="slider">
                         <div class="item-content">
                             <ul class="entry-meta meta-color-light">
-                                <li><i class="fas fa-tag"></i><?php //echo $slider['tag'] ?></li>
-                                <li><i class="fas fa-calendar-alt"></i><?php echo $slider['date'] ?></li>
-                                <li><i class="fas fa-user"></i>BY <a href="#"><?php echo $slider['user'] ?></a></li>
-                                <li><i class="far fa-clock"></i><?php echo $slider['clock'] ?></li>
+                                <li><i class="fas fa-tag"></i><?php echo $slider['category_name'] ?></li>
+                                <!-- <li><i class="fas fa-calendar-alt"></i><?php //echo $slider['created_at'] ?></li> -->
+                                <!-- <li><i class="fas fa-user"></i>BY <a href="#"><?php //echo $slider['user'] ?></a></li> -->
+                                <li><i class="far fa-clock"></i><?php echo $slider['created_at'] ?></li>
                             </ul>
                             <h2 class="item-title"><a href="blog_detail.html"><?php echo $slider['slider_title'] ?></a></h2>
                         </div>
@@ -95,12 +97,12 @@
                                 <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="blog-box-layout2">
                                         <div class="item-img">
-                                            <a href="<?php echo base_url('Blog/blogDetails') ?>"><img src="<?php echo base_url(); ?>assets\blog\img\blog\<?php echo $blog['imgSrc'] ?>" alt="blog"></a>
+                                            <a href="<?php echo base_url('Blog/blogDetails/').$blog['id']; ?>"><img src="<?php echo base_url('assets/admin/images/blogs/'); ?><?php echo $blog['imgSrc'] ?>" alt="blog"></a>
                                         </div>
                                         <div class="item-content">
                                             <ul class="entry-meta meta-color-dark">
-                                                <li><i class="fas fa-tag"></i><?php //echo $blog['tag'] ?></li>
-                                                <li><i class="fas fa-calendar-alt"></i><?php echo $blog['date'] ?></li>
+                                                <li><i class="fas fa-tag"></i><?php echo $blog['category_name'] ?></li>
+                                                <li><i class="fas fa-calendar-alt"></i><?php echo $blog['created_at'] ?></li>
                                             </ul>
                                             <h3 class="item-title"><a href="blog_detail.html"><?php echo $blog['title'] ?></a></h3>
                                         </div>

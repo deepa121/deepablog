@@ -6,8 +6,9 @@
                 </div>
                 <div class="banner-content">
                     <div class="container">
- 
-                        <h2 class="item-title">when an unknown printer  </h2>
+                        <?php foreach($blogs as $blog){ ?>
+                        <h2 class="item-title"><?php echo $blog['title'] ?>  </h2>
+                        <?php } ?>
                         <ul class="item-social">
                             <li><a href="#" class="facebook"><i class="fab fa-facebook-f"></i>SHARE</a></li>
                             <li><a href="#" class="twitter"><i class="fab fa-twitter"></i>SHARE</a></li>
@@ -29,100 +30,10 @@
                     <div class="col-lg-8">
                         <div class="single-blog-box-layout1">
                             <div class="blog-details">
-                                <p>Borem ipsum dolor sit amet, adhuc iriure dissentias est in,
-                                    est ne diam graece tincidunt. Sit et liber minimuam
-                                    tsea no doctus fastidii.An molestiae definiebas mel.
-                                    Quo everti vituperata et, quo cu omnis maiorum aetaea
-                                    fierentlaboramus eum.Nam at dicant deterruisset. Nam at
-                                    nulla choro denique, et cum quando definitionem. Sea te
-                                    nisl splendide, odio timeam an vim. Quas brute aliquam id per,
-                                    et natum vocent eripuit sea. No mea feugiat ara aeat nusquam
-                                    ocurreret Quo everti vituperata etquo cu omnis maiorum aetaea. </p>
-                                <p>Borem ipsum dolor sit amet, adhuc iriure dissentias est in, est
-                                    ne diam graece tincidunt. Sit et liber minimum tacimates, sea no
-                                    doctus fastidii.An molestiae definiebas mel. Quo everti vituperata
-                                    et, quo cu omnis maiorum.soluta fierentlaboramus eum.Nam at dicant
-                                    deterruisset.</p>
-                                <blockquote>Borem ipsum dolor sit amet, adhuc iriure dissentias est in,
-                                    est ne diam graece tincidunt. Sit et liber minimum tacimates, sea no docAas
-                                    mela mine.
-                                    <span class="qoute-subtitle">STEVEN WILLY</span>
-                                </blockquote>
-                                <p>Equidem impedit officiis quo te. Illud partem sententiae mel eu, euripidis
-                                    urbanitas et sit. Mediocrem reprimique an vim, veniam tibique omittantur
-                                    duo ut, agam graeci in vim. Quot appetere patrioque te mea, animal aliquip
-                                    te pri. Ad vis animal ceteros percipitur, eos tollit civibus percipitur no.
-                                    Posse definiebas dissentiunt mel ea, nam ferri utroque invenire an. Ius te
-                                    iuvaret offendit pertinax, his verear deseruisse ex. Illud elitr eam eu. Id usu
-                                    putant commune, stet primis expetenda cu vel. Mea ipsum homero apeirian te.
-                                    Accumsan similique instructior ad pro, te purto dicit qui. Qui ex putent suavitate
-                                    adolescens, his possim tamquam fuisset.</p>
-                                <div class="row gutters-20">
-                                    <div class="col-sm-6 col-12">
-                                        <div class="single-img">
-                                            <img src="<?php echo base_url('assets/blog/img/blog/blog209.jpg') ?>" alt="blog">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-12">
-                                        <div class="single-img">
-                                            <img src="<?php echo base_url('assets/blog/img/blog/blog210.jpg') ?>" alt="blog">
-                                        </div>
-                                    </div>
-                                </div>
-                                <p>Equidem impedit officiis quo te. Illud partem sententiae mel eu,
-                                    euripidis urbanitas et sit. Mediocrem reprimique an vim, veniam
-                                    tibique omittantur duo ut, agam graeci in vim. Quot appetere patrioque
-                                    te mea, animal aliquip te pri. Ad vis animal ceteros percipitur,
-                                    eos tollit civibus percipitur no</p>
-                                <div class="more-info">
-                                    <h2 class="item-title">Discover Travel Innovation 2019</h2>
-                                    <p>Aeuidem impedit officiis quo te. Illud partem sententiae mel eu,
-                                        euripidis urbanitas et sit. Mediocrem reprimique an vim, veniam tibique
-                                        omittantur duo ut, agam graeci in vim. Quot appetere patrioque te mea,
-                                        animal aliquip te pri. Ad vis animal ceteros percipitur, eos tollit civibus
-                                        percipitur.</p>
-                                    <ol class="info-list">
-                                        <li>The feedback provided by a system is not very informative. It’s not clear
-                                            how a system
-                                            request or what exactly happens with the information.</li>
-                                        <li>The feedback provided by a system is not very informative. It’s not clear
-                                            how a system
-                                            request or what exactly happens with the information.</li>
-                                        <li>The feedback provided by a system is not very informative. It’s not clear
-                                            how a system
-                                            request or what exactly happens with the information.</li>
-                                    </ol>
-                                    <p>Muidem impedit officiis quo te. Illud partem sententiae mel eu, euripidis
-                                        urbanitas et sit.
-                                        Mediocrem reprimique an vim, veniam tibique omittantur duo ut, agam graeci in
-                                        vim.</p>
-                                </div>
-                                <div class="single-slider">
-                                    <div class="rc-carousel nav-control-layout9" data-loop="true" data-items="30" data-margin="20" data-autoplay="false" data-autoplay-timeout="5000" data-smart-speed="700" data-dots="false" data-nav="true" data-nav-speed="false" data-r-x-small="1" data-r-x-small-nav="true" data-r-x-small-dots="false" data-r-x-medium="1" data-r-x-medium-nav="true" data-r-x-medium-dots="false" data-r-small="1" data-r-small-nav="true" data-r-small-dots="false" data-r-medium="1" data-r-medium-nav="true" data-r-medium-dots="false" data-r-large="1" data-r-large-nav="true" data-r-large-dots="false" data-r-extra-large="1" data-r-extra-large-nav="true" data-r-extra-large-dots="false">
-                                        <div class="single-slider-box">
-                                            <div class="item-img">
-                                                <img src="<?php echo base_url('assets/blog/img/blog/blog211.jpg') ?>" alt="slider">
-                                            </div>
-                                        </div>
-                                        <div class="single-slider-box">
-                                            <div class="item-img">
-                                                <img src="<?php echo base_url('assets/blog/img/blog/blog211.jpg') ?>" alt="slider">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="more-info">
-                                    <h2 class="item-title">Discover Travel Innovation 2019</h2>
-                                    <p>Equidem impedit officiis quo te. Illud partem sententiae mel eu,
-                                        euripidis urbanitas et sit. Mediocrem reprimique an vim, veniam
-                                        tibique omittantur duo ut, agam graeci in vim. Quot appetere
-                                        patrioque te mea, animal aliquip te pri. Ad vis animal ceteros
-                                        percipitur, eos tollit civibus percipitur noLorem ipsum proin
-                                        gravida nibh vel velit auctor aliquet. Aenean sollicitudin,
-                                        lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis
-                                        sem nibh id elit.Duis sed odio sit amet nibh vulputate cursus a
-                                        sit amet mauris.</p>
-                                </div>
+                                <?php foreach($blogs as $blog) {?>
+                                    <p class="mt-4"> <?php echo $blog['blog_description']?></p>
+                                    <img src="<?php echo base_url('assets/admin/images/blogs/'); ?><?php echo $blog['imgSrc'] ?>" alt="blog">
+                                <?php } ?>
                             </div>
                             <div class="blog-entry-meta">
                                 <ul>
