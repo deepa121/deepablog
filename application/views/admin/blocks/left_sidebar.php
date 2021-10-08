@@ -90,11 +90,16 @@
                     <span>Blog</span>
                 </a>
             </li>
-
             <li>
                 <a href="<?php echo base_url('admin/blog/Slider') ?>" class="waves-effect">
                     <i class="uil-store"></i>
                     <span>Slider</span>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo base_url('admin/blog/Comment') ?>" class="waves-effect">
+                    <i class="uil-store"></i>
+                    <span>Comments</span>
                 </a>
             </li>
 

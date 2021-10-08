@@ -34,7 +34,6 @@ class User_model extends CI_Model
         //     $query = $this->db->get();
         //     return $query->result_array();
 	}
-
 	public function getSliderData1(){
 		$this->db->select("*");
             $this->db->from("slider");
@@ -68,31 +67,30 @@ class User_model extends CI_Model
             $query = $this->db->get();
             return $query->result_array();
 	}
+	public function getCommentData(){
+		$this->db->select("*");
+            $this->db->from("comment");
+			$this->db->where("comment_status",1);
+			// $this->db->join("subcategory", "category.blog_id=subcategory.id");
+            $query = $this->db->get();
+            return $query->result_array();
+	}
+	public function getAllCommentData(){
+		$this->db->select("*");
+            $this->db->from("comment");
+			// $this->db->where("comment_status",1);
+			// $this->db->join("subcategory", "category.blog_id=subcategory.id");
+            $query = $this->db->get();
+            return $query->result_array();
+	}
 	public function getCategoryDatainBlog(){
 		$this->db->select("*");
             $this->db->from("category");
-			$this->db->join("subcategory", "category.category_id=subcategory.category_id");
+			$this->db->join("subcategory", "subcategory.category_id=category.category_id");
             $query = $this->db->get();
             return $query->result_array();
 	}
 
-	 public function getCategoryDatainBlog1(){
-	 	   $this->db->select("*");
-           $this->db->from("category");
-	 		//$this->db->join("subcategory", "category.category_id=subcategory.subcategory_id");
-             $query = $this->db->get();
-            return $query->result_array();
-	 }
-
-	//    public function getSliderData1(){
-	// 	$this->db->select("*");
-    //        $this->db->from("slider");
-    //         // $this->db->where("slider_id",$id);
-	// 		$this->db->join("category", "category.category_id=slider.category_id");
-	// 		// $this->db->join("subcategory", "subcategory.subcategory_id=category.category_id");
-    //         $query = $this->db->get();
-    //         return $query->result_array();
-	// }
 	public function getSubcategoryData(){
 		$this->db->select("subcategory.*,category.category_name,category.category_id");
             $this->db->from("subcategory");
@@ -106,6 +104,12 @@ class User_model extends CI_Model
 	public function addcategory($name){
 		
 		return $this->db->insert('category', $name);
+	}
+	public function addcomment($name){
+
+		// print_r($name);die();
+		
+		return $this->db->insert('comment', $name);
 	}
 	public function addblog($name){
 		
@@ -202,6 +206,28 @@ class User_model extends CI_Model
 		// print_r($this->db->affected_rows());die();
 		return $this->db->affected_rows();
 	}
+	public function update_status_inactive_comment($id)
+	{
+	
+		$data = array(
+			'comment_status' => 0,
+		);
+		// print_r($id);die();
+		$query = $this->db->update('comment',$data,['comment_id'=>$id]);
+		// print_r($this->db->affected_rows());die();
+		return $this->db->affected_rows();
+	}
+	public function update_status_active_comment($id)
+	{
+	
+		$data = array(
+			'comment_status' => 1,
+		);
+		// print_r($id);die();
+		$query = $this->db->update('comment',$data,['comment_id'=>$id]);
+		// print_r($this->db->affected_rows());die();
+		return $this->db->affected_rows();
+	}
 	public function update_status_inactive_slider($id)
 	{
 	
@@ -291,6 +317,23 @@ class User_model extends CI_Model
 			'blog_description' => $this->input->post('Description'),
 			'popular_post' => $this->input->post('popular_post'),
 			'created_at' => $this->input->post('date'),
+		);
+		// print_r($id);die();
+		$query = $this->db->update('blogdata',$data,['id'=>$id]);
+		// print_r($this->db->affected_rows());die();
+		return $this->db->affected_rows();
+	}
+	public function update_blog_data1($id, $new_name)
+	{
+	
+		$data = array(
+			'category_id' => $this->input->post('Categoryid'),
+			'subcategory_id' => $this->input->post('SubCategoryid'),
+			'title' => $this->input->post('title'),
+			'blog_description' => $this->input->post('Description'),
+			'popular_post' => $this->input->post('popular_post'),
+			'created_at' => $this->input->post('date'),
+			// 'imgSrc' => $new_name;
 		);
 		// print_r($id);die();
 		$query = $this->db->update('blogdata',$data,['id'=>$id]);

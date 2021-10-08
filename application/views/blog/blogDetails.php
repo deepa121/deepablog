@@ -31,8 +31,8 @@
                         <div class="single-blog-box-layout1">
                             <div class="blog-details">
                                 <?php foreach($blogs as $blog) {?>
-                                    <p class="mt-4"> <?php echo $blog['blog_description']?></p>
                                     <img src="<?php echo base_url('assets/admin/images/blogs/'); ?><?php echo $blog['imgSrc'] ?>" alt="blog">
+                                <p class="mt-4"> <?php echo $blog['blog_description']?></p>
                                 <?php } ?>
                             </div>
                             <div class="blog-entry-meta">
@@ -127,20 +127,21 @@
                             </div>
                             <div class="blog-comment">
                                 <div class="section-heading-4 heading-dark">
-                                    <h3 class="item-heading">02 COMMENTS</h3>
+                                    <h3 class="item-heading">COMMENTS</h3>
                                 </div>
+                                <?php foreach($comments as $comment){ ?>
                                 <div class="media media-none--xs">
                                     <img src="<?php echo base_url('assets/blog/img/blog/blog216.jpg') ?>" alt="Blog Comments" class="img-fluid media-img-auto">
                                     <div class="media-body">
-                                        <h4 class="item-title">Jack Sparrow</h4>
-                                        <div class="item-subtitle">2 Mins Ago</div>
-                                        <p>Bmmy text of the printing and typesetting industryorem Ipsum
-                                            has been the industry's standard dummy text ever since the</p>
+                                        <h4 class="item-title"><?php echo $comment['comment_name'] ?></h4>
+                                        <div class="item-subtitle"><?php echo $comment['created_at'] ?></div>
+                                        <p><?php echo $comment['message'] ?></p>
                                         <a href="#" class="item-btn">Reply</a>
                                     </div>
                                 </div>
-                                <div class="media media-none--xs">
-                                    <img src="<?php echo base_url('assets/blog/img/blog/blog217.jpg') ?>" alt="Blog Comments" class="img-fluid media-img-auto">
+                                <?php } ?>
+                                <!-- <div class="media media-none--xs">
+                                    <img src="<?php //echo base_url('assets/blog/img/blog/blog217.jpg') ?>" alt="Blog Comments" class="img-fluid media-img-auto">
                                     <div class="media-body">
                                         <h4 class="item-title">Dakcon Nitiya</h4>
                                         <div class="item-subtitle">2 Mins Ago</div>
@@ -148,13 +149,14 @@
                                             been the industry's standard dummy text ever since the</p>
                                         <a href="#" class="item-btn">Reply</a>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="blog-form">
                                 <div class="section-heading-4 heading-dark">
                                     <h3 class="item-heading">WRITE A COMMENT</h3>
                                 </div>
-                                <form class="contact-form-box">
+                                <?php foreach($blogs as $blog){ ?>
+                                <form class="contact-form-box" method="post" action="<?php echo base_url('Blog/user_comment/').$blog['id'] ?>" >
                                     <div class="row gutters-15">
                                         <div class="col-md-4 form-group">
                                             <input type="text" placeholder="Name*" class="form-control" name="first_name" data-error="Name field is required" required="">
@@ -173,11 +175,12 @@
                                             <div class="help-block with-errors"></div>
                                         </div>
                                         <div class="col-12 form-group">
-                                            <button class="item-btn">POST COMMENT</button>
+                                            <button type="submit" class="item-btn">POST COMMENT</button>
                                         </div>
                                     </div>
                                     <div class="form-response"></div>
                                 </form>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
