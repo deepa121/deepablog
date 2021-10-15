@@ -15,9 +15,11 @@ class Blog extends CI_Controller {
 	public function index()
 	{	
 		$data['blogs']=$this->User_model->getBlogData();
+		$data['user'] = $this->session->userdata('logged_in');               
+
 		// print_r($data);die();
 		
-		$this->load->view('admin/blocks/header');
+		$this->load->view('admin/blocks/header',$data);
 		$this->load->view('admin/blocks/left_sidebar');
 		$this->load->view('admin/blog/index',$data);
 		$this->load->view('admin/blocks/footer');

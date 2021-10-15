@@ -30,6 +30,8 @@
 
             
             <header id="page-topbar">
+            <?php if(isset($user['name'])){
+            ?>
                 <div class="navbar-header">
                     <div class="d-flex">
                         <!-- LOGO -->
@@ -58,12 +60,12 @@
                         </button>
 
                         <!-- App Search-->
-                        <form class="app-search d-none d-lg-block">
+                        <!-- <form class="app-search d-none d-lg-block">
                             <div class="position-relative">
                                 <input type="text" class="form-control" placeholder="Search...">
                                 <span class="uil-search"></span>
                             </div>
-                        </form>
+                        </form> -->
                     </div>
 
                     <div class="d-flex">
@@ -87,35 +89,35 @@
                             </div>
                         </div>
 
-                        <div class="dropdown d-inline-block language-switch">
-                            <button type="button" class="btn header-item waves-effect" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="<?php echo base_url(); ?>assets/admin/images/flags/us.jpg" alt="Header Language" height="16">
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-end">
+                        <!-- <div class="dropdown d-inline-block language-switch"> -->
+                            <!-- <button type="button" class="btn header-item waves-effect" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="<?php //echo base_url(); ?>assets/admin/images/flags/us.jpg" alt="Header Language" height="16">
+                            </button> -->
+                            <!-- <div class="dropdown-menu dropdown-menu-end"> -->
                     
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <!-- <a href="javascript:void(0);" class="dropdown-item notify-item">
                                     <img src="assets\images\flags\spain.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Spanish</span>
-                                </a>
+                                </a> -->
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <!-- <a href="javascript:void(0);" class="dropdown-item notify-item">
                                     <img src="assets\images\flags\germany.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">German</span>
-                                </a>
+                                </a> -->
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <!-- <a href="javascript:void(0);" class="dropdown-item notify-item">
                                     <img src="assets\images\flags\italy.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Italian</span>
-                                </a>
+                                </a> -->
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <!-- <a href="javascript:void(0);" class="dropdown-item notify-item">
                                     <img src="assets\images\flags\russia.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Russian</span>
-                                </a>
-                            </div>
-                        </div>
+                                </a> -->
+                            <!-- </div> -->
+                        <!-- </div> -->
 
-                        <div class="dropdown d-none d-lg-inline-block ms-1">
+                        <!-- <div class="dropdown d-none d-lg-inline-block ms-1">
                             <button type="button" class="btn header-item noti-icon waves-effect" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="uil-apps"></i>
                             </button>
@@ -164,15 +166,15 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
-                        <div class="dropdown d-none d-lg-inline-block ms-1">
+                        <!-- <div class="dropdown d-none d-lg-inline-block ms-1">
                             <button type="button" class="btn header-item noti-icon waves-effect" data-bs-toggle="fullscreen">
                                 <i class="uil-minus-path"></i>
                             </button>
-                        </div>
+                        </div> -->
 
-                        <div class="dropdown d-inline-block">
+                        <!-- <div class="dropdown d-inline-block">
                             <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="uil-bell"></i>
                                 <span class="badge bg-danger rounded-pill">3</span>
@@ -263,24 +265,36 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="dropdown d-inline-block">
                             <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="rounded-circle header-profile-user" src="<?php echo base_url('assets/admin/images/users/avatar-4.jpg') ?>" alt="Header Avatar">
+                                <?php if(isset($user['name'])){
+                                    ?>
+                                    <img class="rounded-circle header-profile-user" src="<?php echo base_url('assets/admin/images/users/avatar-4.jpg') ?>" alt="Header Avatar">
+                                <?php
+                                }else{
+                                    echo "";
+                                } ?>
                                 <span class="d-none d-xl-inline-block ms-1 fw-medium font-size-15"><?php if(isset($user['name'])){
                                     echo $user['name'];
                                 }else{
                                     echo "";
                                 } ?></span>
+                                <?php if(isset($user['name'])){
+                                    ?>
                                 <i class="uil-angle-down d-none d-xl-inline-block font-size-15"></i>
                             </button>
                             <div class="dropdown-menu dropdown-menu-end">
                                 <!-- item-->
                                 <a class="dropdown-item" href="#"><i class="uil uil-user-circle font-size-18 align-middle text-muted me-1"></i> <span class="align-middle">View Profile</span></a>
-                                <a class="dropdown-item" href="#"><i class="uil uil-wallet font-size-18 align-middle me-1 text-muted"></i> <span class="align-middle">My Wallet</span></a>
+                                <?php
+                                }else{
+                                    echo "";
+                                } ?>
+                                <!-- <a class="dropdown-item" href="#"><i class="uil uil-wallet font-size-18 align-middle me-1 text-muted"></i> <span class="align-middle">My Wallet</span></a>
                                 <a class="dropdown-item d-block" href="#"><i class="uil uil-cog font-size-18 align-middle me-1 text-muted"></i> <span class="align-middle">Settings</span> <span class="badge bg-soft-success rounded-pill mt-1 ms-2">03</span></a>
-                                <a class="dropdown-item" href="#"><i class="uil uil-lock-alt font-size-18 align-middle me-1 text-muted"></i> <span class="align-middle">Lock screen</span></a>
+                                <a class="dropdown-item" href="#"><i class="uil uil-lock-alt font-size-18 align-middle me-1 text-muted"></i> <span class="align-middle">Lock screen</span></a> -->
                                 <?php if(isset($user['name'])){
                                 ?>
                                     <a class="dropdown-item" href="<?php echo base_url('admin/Admin/log_out') ?>"><i class="uil uil-sign-out-alt font-size-18 align-middle me-1 text-muted"></i> <span class="align-middle">Sign out</span></a>
@@ -292,12 +306,16 @@
                             </div>
                         </div>
 
-                        <div class="dropdown d-inline-block">
+                        <!-- <div class="dropdown d-inline-block">
                             <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
                                 <i class="uil-cog"></i>
                             </button>
-                        </div>
+                        </div> -->
             
                     </div>
                 </div>
+            <?php
+                }else{
+                    echo "";
+                } ?>
             </header>

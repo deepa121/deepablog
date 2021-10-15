@@ -5,6 +5,8 @@
 
 <div class="page-content">
     <div class="container-fluid">
+      <div class="row">
+        <div class="col-8 ml-auto">
 
     <body class="hold-transition login-page">
 <div class="login-box">
@@ -73,8 +75,9 @@
 </div>
 <!-- /.login-box -->
 
+</div>
 
-
+    </div>
     </div> <!-- container-fluid -->
 </div>
 </div>
