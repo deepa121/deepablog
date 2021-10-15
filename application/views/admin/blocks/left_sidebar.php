@@ -3,7 +3,7 @@
 
 <!-- LOGO -->
 <div class="navbar-brand-box">
-    <a href="<?php base_url('Admin');?>" class="logo logo-dark">
+    <a href="<?php base_url('admin/Admin/index1');?>" class="logo logo-dark">
         <span class="logo-sm">
             <img src="<?php echo base_url(); ?>assets/admin/images/logo-sm.png" alt="" height="22">
         </span>
@@ -35,7 +35,7 @@
             <li class="menu-title">Menu</li>
 
             <li>
-                <a href="<?php echo base_url('admin/Admin');?>">
+                <a href="<?php echo base_url('admin/Admin/index1');?>">
                     <i class="uil-home-alt"></i><span class="badge rounded-pill bg-primary float-end">01</span>
                     <span>Dashboard</span>
                 </a>

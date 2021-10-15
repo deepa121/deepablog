@@ -46,7 +46,7 @@
                                 >Category Name</label
                               >
                               <select name="Categoryid" id="Categoryname" class="form-control mb-2">
-                                <option value="">Select Name</option>
+                                <option value="">Select category</option>
                                 <?php foreach($categories as $category){?>
                                 <option value="<?php echo $category['category_id']; ?>"><?php echo $category['category_name']; ?></option>
                                 <?php }?>
@@ -54,11 +54,14 @@
                             <label class="form-label" for="subcategoryname"
                                 >Subcategory Name</label
                               >
-                              <select name="subcategoryid" id="subcategoryname" class="form-control">
+                              <!-- <select name="subcategoryid" id="subcategoryname" class="form-control">
                                 <option value="">Select Name</option>
-                                <?php foreach($subcategories as $subcategory){?>
-                                <option value="<?php echo $subcategory['subcategory_id']; ?>"><?php echo $subcategory['name']; ?></option>
-                                <?php }?>
+                                <?php //foreach($subcategories as $subcategory){?>
+                                <option value="<?php //echo $subcategory['subcategory_id']; ?>"><?php //echo $subcategory['name']; ?></option>
+                                <?php //}?>
+                              </select> -->
+                              <select name="subcategoryid" id="subcategoryname" class="form-control">
+                                <option value="">Select subcategory</option>
                               </select>
                               <div class="mt-3">
                                 <label class="form-label" for="title"

@@ -40,6 +40,11 @@ class Blog extends CI_Controller {
 		$this->load->view('admin/blocks/footer');
 		
 	}
+	public function fetch_subcategory(){
+		if($this->input->post('category_id')){
+			echo $this->User_model->fetch_subcategory($this->input->post('category_id'));
+		}
+	}
 
 	public function insert(){
 		
