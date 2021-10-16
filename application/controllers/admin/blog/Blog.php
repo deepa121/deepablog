@@ -15,9 +15,11 @@ class Blog extends CI_Controller {
 	public function index()
 	{	
 		$data['blogs']=$this->User_model->getBlogData();
+		$data['user'] = $this->session->userdata('logged_in');               
+
 		// print_r($data);die();
 		
-		$this->load->view('admin/blocks/header');
+		$this->load->view('admin/blocks/header',$data);
 		$this->load->view('admin/blocks/left_sidebar');
 		$this->load->view('admin/blog/index',$data);
 		$this->load->view('admin/blocks/footer');
@@ -39,6 +41,11 @@ class Blog extends CI_Controller {
 		$this->load->view('admin/blog/addBlog',$data);
 		$this->load->view('admin/blocks/footer');
 		
+	}
+	public function fetch_subcategory(){
+		if($this->input->post('category_id')){
+			echo $this->User_model->fetch_subcategory($this->input->post('category_id'));
+		}
 	}
 
 	public function insert(){

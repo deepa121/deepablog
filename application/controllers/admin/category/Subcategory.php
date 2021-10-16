@@ -14,9 +14,11 @@ class Subcategory extends CI_Controller {
 	{	
 		$this->load->model("User_model");
 		$data['sub_categories']=$this->User_model->getSubcategoryData();
+		$data['user'] = $this->session->userdata('logged_in');               
+
 		// print_r($data);die();
 
-		$this->load->view('admin/blocks/header');
+		$this->load->view('admin/blocks/header',$data);
 		$this->load->view('admin/blocks/left_sidebar');
 		$this->load->view('admin/category/subcategory',$data);
 		$this->load->view('admin/blocks/footer');

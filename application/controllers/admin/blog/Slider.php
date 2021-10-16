@@ -16,9 +16,11 @@ class Slider extends CI_Controller {
 	public function index()
 	{	
 		$data['sliders']=$this->User_model->getSliderAllData();
+		$data['user'] = $this->session->userdata('logged_in');               
+
 		// print_r($data);die();
 		
-		$this->load->view('admin/blocks/header');
+		$this->load->view('admin/blocks/header',$data);
 		$this->load->view('admin/blocks/left_sidebar');
 		$this->load->view('admin/blog/slider',$data);
 		$this->load->view('admin/blocks/footer');

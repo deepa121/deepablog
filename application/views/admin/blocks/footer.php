@@ -88,6 +88,26 @@
 
         <!-- <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script> -->
 
+
+        <script>    
+            $(document).ready(function(){
+
+                $('#Categoryname').change(function(){
+                    var category_id = $('#Categoryname').val();
+                    if(category_id!=''){
+                        $.ajax({
+                            url:"<?php echo base_url('admin/blog/Blog/fetch_subcategory'); ?>",
+                            method:"POST",
+                            data:{category_id:category_id},
+                            success:function(data){
+                                $('#subcategoryname').html(data);
+                            }
+                        });
+                    }
+                });
+
+            });
+        </script>
     </body>
 
 </html>
