@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 12, 2021 at 07:04 AM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.10
+-- Generation Time: Oct 16, 2021 at 09:18 AM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 8.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -71,7 +71,8 @@ INSERT INTO `category` (`category_id`, `category_name`, `status`) VALUES
 (16, 'Fashion', 1),
 (17, 'Health', 1),
 (18, 'Beauty', 1),
-(21, 'Museum', 1);
+(21, 'Museum', 1),
+(22, 'light', 1);
 
 -- --------------------------------------------------------
 
@@ -96,6 +97,26 @@ CREATE TABLE `comment` (
 
 INSERT INTO `comment` (`comment_id`, `blog_id`, `comment_name`, `comment_email`, `comment_website`, `message`, `comment_status`, `created_at`) VALUES
 (1, 19, 'dddd', 'admin@gmail.com', 'sssss', 'eeeeeee', 1, '2021-10-07 09:14:29');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `create_admin`
+--
+
+CREATE TABLE `create_admin` (
+  `id` int(15) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `create_admin`
+--
+
+INSERT INTO `create_admin` (`id`, `email`, `name`, `password`) VALUES
+(1, 'admin@gmail.com', 'jitendra mehra', 'admin');
 
 -- --------------------------------------------------------
 
@@ -141,7 +162,8 @@ CREATE TABLE `subcategory` (
 INSERT INTO `subcategory` (`subcategory_id`, `category_id`, `name`, `status`) VALUES
 (27, 18, 'facecare', 1),
 (31, 17, 'medical1', 1),
-(32, 21, 'old museum', 1);
+(32, 21, 'old museum', 1),
+(33, 22, 'bulb', 1);
 
 --
 -- Indexes for dumped tables
@@ -166,6 +188,12 @@ ALTER TABLE `comment`
   ADD PRIMARY KEY (`comment_id`);
 
 --
+-- Indexes for table `create_admin`
+--
+ALTER TABLE `create_admin`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `slider`
 --
 ALTER TABLE `slider`
@@ -186,19 +214,25 @@ ALTER TABLE `subcategory`
 -- AUTO_INCREMENT for table `blogdata`
 --
 ALTER TABLE `blogdata`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
   MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `create_admin`
+--
+ALTER TABLE `create_admin`
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `slider`
@@ -210,7 +244,7 @@ ALTER TABLE `slider`
 -- AUTO_INCREMENT for table `subcategory`
 --
 ALTER TABLE `subcategory`
-  MODIFY `subcategory_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `subcategory_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
