@@ -8,6 +8,7 @@ class Admin extends CI_Controller {
 		$this->load->model('User_model');
 		$this->load->helper(array('form', 'url'));
 		$this->load->library('session');
+        $this->load->library("form_validation");
 
         
     }
@@ -24,7 +25,7 @@ class Admin extends CI_Controller {
 	public function index1()
         { 
             if ($this->session->userdata('logged_in')) {
-                $data['user'] = $this->session->userdata('logged_in');               
+                $data['user'] = $this->session->userdata('logged_in');   
                 $this->load->view('admin/blocks/header',$data);
                 $this->load->view('admin/blocks/left_sidebar',$data);
                 $this->load->view('admin/index',$data);
@@ -135,6 +136,78 @@ class Admin extends CI_Controller {
                 redirect('Admin');            
             }
         }
+
+        public function Profile($id)
+	{
+        // $id = $this->session->userdata['user_id'];
+        // echo $id;die();
+        $data['user'] = $this->session->userdata('logged_in');  
+		$data['profile'] = $this->User_model->getprofile($id);
+		$this->session->set_userdata($data['profile']);
+		$this->load->view('admin/blocks/header',$data);
+        $this->load->view('admin/blocks/left_sidebar',$data);
+        $this->load->view('admin/profile',$data);
+        $this->load->view('admin/blocks/footer');
+		// $this->load->view('admin/blocks/footer');
+	}
+	public function doProfile()
+	{
+		  
+      	$data=array();
+      	$config=array(
+				array(
+	                'field' => 'email',
+	                'label' => 'Email',
+	                'rules' => 'trim|required'
+	            ),
+	          	array(
+	                'field' => 'username',
+	                'label' => 'Username',
+	                'rules' => 'trim|required'
+	            ),
+	            array(
+	                'label' => 'Phone No',
+	                'rules' => 'trim|required'
+	            )
+			);
+        
+    	$this->form_validation->set_rules($config);              
+    	$fields   = array("email","username");
+
+      	foreach($fields as $field)
+      	{
+          	$data[$field] = $this->input->post($field);
+      	}
+      	if($this->form_validation->run() == FALSE)
+      	{
+          	$this->session->set_flashdata("errors", validation_errors());
+          	$this->session->set_flashdata('profileform',$data);
+          	redirect('admin/Admin/Profile/1');
+      	}
+  		else
+  		{
+  			
+      		$datanew['email']         = $data['email'];
+            $datanew['name']      = $data['username'];
+
+      		$id     = 1;
+      		$result = $this->User_model->DoChangeProfile($datanew,$id);
+                	
+  			if($result > 0)
+  			{
+  				$this->session->set_flashdata('success',"Profile change successfully");
+  				redirect('admin/Admin/Profile/1');
+  			}
+  			else
+  			{   
+
+          		$this->session->set_flashdata('errors',"Profile change eny error");
+          		redirect('admin/Admin/Profile/1');
+  			}
+  			
+  		}
+     
+	}
 
         public function update_password()
         { 
@@ -297,4 +370,77 @@ class Admin extends CI_Controller {
             }
 
         }
+        public function ChangePassword()
+	{
+		
+		redirect('admin/Admin/doChangepassword');
+	}
+        public function doChangepassword()
+	{
+		
+        $data=array();
+        $config=array(
+						array(
+                                'field' => 'opass',
+                                'label' => 'Old Password',
+                                'rules' => 'trim|required'
+                             ),
+						array(
+                                'field' => 'npass',
+                                'label' => 'New Password',
+                                'rules' => 'trim|required'
+                             ),
+						array(
+                                'field' => 'cpass',
+                                'label' => 'Confirm Password',
+                                'rules' => 'trim|matches[npass]'
+                             )
+						  );
+          
+          	$this->form_validation->set_rules($config);              
+          	$fields   = array("opass","npass");
+
+        
+        
+        foreach($fields as $field)
+        {
+            $data[$field] = $this->input->post($field);
+        }
+       
+        if($this->form_validation->run() == FALSE)
+        {
+            $this->session->set_flashdata( "errors", validation_errors());
+            $this->session->set_flashdata('cform',$data);
+            redirect('admin/Admin/Profile/1');
+        }
+		else
+		{
+			$id=1;
+			$result1=$this->User_model->Checkoldpass($id,$data);
+			if( $result1 )
+			{
+				$aid=1;
+				$datanew['password']=$data['npass'];
+				$result=$this->User_model->DoChangePassword($datanew,$aid);
+              
+				if($result > 0)
+				{
+					$this->session->set_flashdata('success',"Change Password Successfully");
+					redirect('admin/Admin/Profile/1');
+				}
+				else
+				{   
+
+                    $this->session->set_flashdata('errors',"Change Password Not Successfully");
+                    redirect('admin/Admin/Profile/1');
+				}
+			}
+			else
+			{
+					$this->session->set_flashdata('errors',"Wrong Old Password");
+                    redirect('admin/Admin/Profile/1');
+			}
+					
+		}
+	}
 }
