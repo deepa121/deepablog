@@ -536,4 +536,41 @@ class User_model extends CI_Model
             $query = $this->db->update('subject',$data,['sub_id'=>$sub_id]);
             return $this->db->affected_rows();
         }
+		public function getprofile($id)
+	{
+		$this->db->select("*");
+		$this->db->from("create_admin");
+		$this->db->where("id",$id);
+		$query = $this->db->get();
+		return $query->row_array();
+	}
+	public function DoChangeProfile($datanew,$id)
+	{
+		$this->db->where("id",$id);
+		return $this->db->update('create_admin',$datanew);
+	}
+	public function Checkoldpass($id,$data)
+	{
+		$this->db->select("*");
+		$this->db->from("create_admin");
+		$this->db->where("id",$id);
+		$this->db->where("password",$data['opass']);
+
+			$query = $this->db->get();
+
+			if($query->num_rows() > 0)
+				{
+					return $query->row_array();
+				}
+				else
+				{
+					return false;
+				}
+		
+	}
+	public function DoChangePassword($datanew,$aid)
+	{
+		$this->db->where("id",$aid);
+		return $this->db->update('create_admin',$datanew);
+	}
 }
