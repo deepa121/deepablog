@@ -25,7 +25,9 @@ class Blog extends CI_Controller {
 	{	
 		$this->load->model("User_model");
 		$id=$this->uri->segment('3');
-		$data['comments']=$this->User_model->getCommentData();
+		$data['comments']=$this->User_model->getCommentData($id);
+		$data['popularPosts']=$this->User_model->getPopularPostData();
+		$data['categories']=$this->User_model->getCategoryData();
 
 		// echo $id;die();
 		$data['blogs']=$this->User_model->getBlogData1($id);

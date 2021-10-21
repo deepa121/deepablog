@@ -22,6 +22,15 @@ class User_model extends CI_Model
 		$q=$this->db->get();
 		return $q->result_array();
 	}
+	public function getPopularPostData(){
+		$this->db->select("*");
+            $this->db->from("blogdata");
+		$this->db->join("category", "category.category_id=blogdata.category_id");
+		// $this->db->where("id",$id);
+		$this->db->where("popular_post",1);
+		$q=$this->db->get();
+		return $q->result_array();
+	}
 	public function getSliderAllData(){
 		$q=$this->db->get('slider');
 		return $q->result_array();
@@ -80,10 +89,11 @@ class User_model extends CI_Model
             $query = $this->db->get();
             return $query->result_array();
 	}
-	public function getCommentData(){
+	public function getCommentData($id){
 		$this->db->select("*");
             $this->db->from("comment");
 			$this->db->where("comment_status",1);
+			$this->db->where("blog_id",$id);
 			// $this->db->join("subcategory", "category.blog_id=subcategory.id");
             $query = $this->db->get();
             return $query->result_array();

@@ -57,15 +57,37 @@
                         <div class="col-lg-7 d-flex justify-content-center">
                             <nav id="dropdown" class="template-main-menu">
                                 <ul>
-                                    <li class="hide-on-mobile-menu"> <a href="#">HOME</a></li>				<?php foreach($categories as $category){
+                                    <li class="hide-on-mobile-menu"> <a href="#">HOME</a></li>				<?php //foreach($categories as $category){
                                         // print_r($category);die();
                                         ?>				
                                     <li>
-                                        <a href="#"><?php echo $category['category_name']?></a>
+                                    <?php
+                                        // $check = 0;            
+                                        $this->db->select('*');
+                                        $this->db->from('category');  
+                                        $this->db->where('status','1');
+                                        // $this->db->order_by('updated',"desc");
+                                        $this->db->limit('5');
+                                        $query = $this->db->get();        
+                                        $maincat_list =  $query->result_array();
+                                        foreach($maincat_list as $row){
+                                            $this->db->select('*');
+                                            $this->db->from('subcategory');  
+                                            $this->db->where('status','1'); 
+                                            $this->db->where('category_id',$row['category_id']);
+                                            // $this->db->order_by('updated',"desc");                     
+                                            $this->db->limit('4');
+                                            $query_cat = $this->db->get();  
+                                            $cat_list =  $query_cat->result_array();
+                                    ?>
+                                    
+                                        <a href="#"><?php echo $row['category_name']?></a>
+                                        
                                         <ul class="dropdown-menu-col-1">
-                                            
+                                        <?php $check = 0;
+                                            foreach($cat_list as $rowcat){ ?>
                                             <li>
-                                                <a href="blog.html"> <?php echo $category['name']?> </a>
+                                                <a href="blog.html"> <?php echo $rowcat['name']?> </a>
                                             </li>
                                             
                                             <!-- <li>
@@ -74,7 +96,9 @@
                                             <li>
                                                 <a href="blog.html">Blog </a>
                                             </li> -->
+                                            <?php } ?>
                                         </ul>
+                                       
                                     </li>
                                     <?php } ?>
                                     <li>
