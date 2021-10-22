@@ -195,22 +195,26 @@
                             </div>
                             <div class="widget-latest">
                                 <ul class="block-list">
+                                    <?php foreach($popularPosts as $popularPost){ 
+                                        // echo "<pre>";
+                                        // print_r($popularPost);die();
+                                        ?>
                                     <li class="single-item">
                                         <div class="item-img">
-                                            <a href="#"><img src="<?php echo base_url('assets/blog/img/blog/blog85.jpg') ?>" alt="Post"></a>
+                                            <a href="#"><img width="100" src="<?php echo base_url('assets/admin/images/blogs/') ?><?php echo $popularPost['imgSrc'] ?>" alt="Post"></a>
                                         </div>
                                         <div class="item-content">
                                             <ul class="entry-meta meta-color-dark">
-                                                <li><i class="fas fa-tag"></i>Weeding</li>
-                                                <li><i class="fas fa-calendar-alt"></i>Jan 19, 2019</li>
+                                                <li><i class="fas fa-tag"></i><?php echo $popularPost['category_name'] ?></li>
+                                                <li><i class="fas fa-calendar-alt"></i><?php echo $popularPost['created_at'] ?></li>
                                             </ul>
-                                            <h4 class="item-title"><a href="#">Thought aful Living result are aert aos
-                                                    Angeles</a></h4>
+                                            <h4 class="item-title"><a href="#"><?php echo $popularPost['title'] ?></a></h4>
                                         </div>
                                     </li>
-                                    <li class="single-item">
+                                    <?php } ?>
+                                    <!-- <li class="single-item">
                                         <div class="item-img">
-                                            <a href="#"><img src="<?php echo base_url('assets/blog/img/blog/blog86.jpg') ?>" alt="Post"></a>
+                                            <a href="#"><img src="<?php //echo base_url('assets/blog/img/blog/blog86.jpg') ?>" alt="Post"></a>
                                         </div>
                                         <div class="item-content">
                                             <ul class="entry-meta meta-color-dark">
@@ -246,7 +250,7 @@
                                             <h4 class="item-title"><a href="#">Marc Falzone opens £2 million UK Expo
                                                     Pavilion</a></h4>
                                         </div>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </div>
                         </div>
@@ -272,12 +276,14 @@
                             </div>
                             <div class="widget-categories">
                                 <ul>
+                                    <?php foreach($categories as $category){ ?>
                                     <li>
-                                        <a href="#">Beauty
-                                            <span>(35)</span>
+                                        <a href="#"><?php echo $category['name'] ?>
+                                            <!-- <span>(35)</span> -->
                                         </a>
                                     </li>
-                                    <li>
+                                    <?php } ?>
+                                    <!-- <li>
                                         <a href="#">Fashion
                                             <span>(10)</span>
                                         </a>
@@ -306,7 +312,7 @@
                                         <a href="#">Technology
                                             <span>(22)</span>
                                         </a>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </div>
                         </div>

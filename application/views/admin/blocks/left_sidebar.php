@@ -36,7 +36,7 @@
 
             <li>
                 <a href="<?php echo base_url('admin/Admin/index1');?>">
-                    <i class="uil-home-alt"></i><span class="badge rounded-pill bg-primary float-end">01</span>
+                    <!-- <i class="uil-home-alt"></i><span class="badge rounded-pill bg-primary float-end">01</span> -->
                     <span>Dashboard</span>
                 </a>
             </li>
